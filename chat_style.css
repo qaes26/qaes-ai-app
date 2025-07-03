@@ -1,0 +1,101 @@
+:root {
+    --primary-color: #00aaff;
+    --secondary-color: #aa00ff;
+    --dark-bg: #0a0c10;
+    --chat-bg: #111319;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --text-color: #e0e0e0;
+    --heading-color: #ffffff;
+    --user-msg-bg: #004d6b;
+    --system-msg-bg: #2a2d3a;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background: var(--dark-bg);
+    color: var(--text-color);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.chat-container {
+    width: 100%;
+    max-width: 800px;
+    height: 90vh;
+    background: var(--chat-bg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.chat-header {
+    background: rgba(10, 12, 16, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--heading-color);
+}
+
+.chat-header h3 { margin: 0; font-size: 1.2rem; }
+.logo-text {
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.back-button { color: var(--text-color); text-decoration: none; font-size: 1.2rem; transition: color 0.3s ease; }
+.back-button:hover { color: var(--primary-color); }
+
+.chat-messages {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.chat-messages::-webkit-scrollbar { width: 8px; }
+.chat-messages::-webkit-scrollbar-track { background: var(--chat-bg); }
+.chat-messages::-webkit-scrollbar-thumb { background-color: var(--system-msg-bg); border-radius: 10px; }
+
+.message { display: flex; align-items: flex-start; gap: 15px; max-width: 85%; line-height: 1.7; }
+.message-avatar { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.message-content { padding: 12px 18px; border-radius: 18px; }
+.message-content p { margin: 0; }
+.message-content strong { color: var(--primary-color); }
+
+.system-message { align-self: flex-start; }
+.system-message .message-avatar { background: var(--secondary-color); }
+.system-message .message-content { background: var(--system-msg-bg); border-top-left-radius: 0; }
+
+.user-message { align-self: flex-end; flex-direction: row-reverse; }
+.user-message .message-avatar { background: var(--primary-color); }
+.user-message .message-content { background: var(--user-msg-bg); border-top-right-radius: 0; }
+
+.chat-input-area { display: flex; padding: 15px; border-top: 1px solid rgba(255, 255, 255, 0.1); background: var(--chat-bg); gap: 10px; }
+#user-input { flex-grow: 1; background: var(--glass-bg); border: 1px solid #333; border-radius: 25px; padding: 12px 20px; color: var(--text-color); font-family: 'Cairo', sans-serif; font-size: 1rem; resize: none; max-height: 150px; transition: all 0.3s ease; }
+#user-input:focus { outline: none; border-color: var(--primary-color); box-shadow: 0 0 10px rgba(0, 170, 255, 0.3); }
+
+.icon-btn { background: transparent; border: 1px solid #444; color: var(--text-color); width: 50px; height: 50px; border-radius: 50%; font-size: 1.1rem; cursor: pointer; transition: all 0.3s ease; flex-shrink: 0; }
+.icon-btn:hover { background-color: var(--system-msg-bg); border-color: var(--primary-color); color: var(--primary-color); }
+
+#send-btn { background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)); border: none; color: white; width: 50px; height: 50px; border-radius: 50%; font-size: 1.2rem; cursor: pointer; transition: all 0.3s ease; }
+#send-btn:hover { transform: scale(1.1); box-shadow: 0 0 15px var(--primary-color); }
+
+.file-attachment-info { padding: 0 20px 10px 20px; font-size: 0.9rem; color: #ccc; display: none; text-align: center; }
+.file-attachment-info span { background-color: var(--system-msg-bg); padding: 5px 12px; border-radius: 15px; }
+.file-attachment-info button { background: none; border: none; color: #ff5555; cursor: pointer; margin-right: 10px; font-size: 1rem; }
+.download-pdf-btn-in-message { display: inline-block; background-color: var(--primary-color); color: white; padding: 8px 15px; border-radius: 8px; text-decoration: none; margin-top: 10px; font-size: 0.9rem; }
+.download-pdf-btn-in-message i { margin-left: 8px; }

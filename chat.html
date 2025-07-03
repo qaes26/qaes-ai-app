@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محادثة مع Qaes Ai</title>
+    <link rel="stylesheet" href="chat_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- ✨ إضافة جديدة: استدعاء مكتبة صناعة ملفات PDF ✨ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+    <div class="chat-container">
+        <!-- رأس صفحة المحادثة -->
+        <div class="chat-header">
+            <a href="index.html" class="back-button"><i class="fas fa-arrow-right"></i></a>
+            <h3>محادثة مع <span class="logo-text">Qaes Ai</span></h3>
+            <div class="header-icon">
+                <i class="fas fa-robot"></i>
+            </div>
+        </div>
+
+        <!-- منطقة عرض الرسائل -->
+        <div class="chat-messages" id="chat-messages">
+            <!-- الرسالة الترحيبية -->
+            <div class="message system-message">
+                <div class="message-avatar"><i class="fas fa-robot"></i></div>
+                <div class="message-content">
+                    <p>مرحباً بك! أنا <strong>Qaes Ai</strong>، مساعدك الذكي. اطرح سؤالاً، أو الصق نصاً طويلاً لتلخيصه.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- منطقة لعرض اسم الملف المرفق -->
+        <div id="file-attachment-info" class="file-attachment-info"></div>
+
+        <!-- منطقة إدخال النص -->
+        <div class="chat-input-area">
+            <input type="file" id="pdf-upload-input" accept=".pdf" style="display: none;">
+            <button id="upload-btn" class="icon-btn" aria-label="إرفاق ملف PDF">
+                <i class="fas fa-paperclip"></i>
+            </button>
+            <textarea id="user-input" placeholder="اكتب رسالتك أو ارفق ملف PDF لتلخيصه..." rows="1"></textarea>
+            <button id="send-btn" aria-label="إرسال"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <!-- ربط ملف الجافا سكريبت -->
+    <script src="chat_script.js"></script>
+</body>
+</html>
