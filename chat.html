@@ -7,16 +7,17 @@
     <link rel="stylesheet" href="chat_style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <!-- ✨ إضافة جديدة: استدعاء مكتبة صناعة ملفات PDF ✨ -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
-
     <div class="chat-container">
-        <!-- رأس صفحة المحادثة -->
+        <!-- رأس صفحة المحادثة مع زر المحادثة الجديدة -->
         <div class="chat-header">
-            <a href="index.html" class="back-button"><i class="fas fa-arrow-right"></i></a>
+            <div>
+                <a href="index.html" class="back-button" title="العودة للرئيسية"><i class="fas fa-arrow-right"></i></a>
+                <!-- ✨ إضافة جديدة: زر المحادثة الجديدة ✨ -->
+                <button id="new-chat-btn" class="icon-btn-header" title="محادثة جديدة"><i class="fas fa-plus"></i></button>
+            </div>
             <h3>محادثة مع <span class="logo-text">Qaes Ai</span></h3>
             <div class="header-icon">
                 <i class="fas fa-robot"></i>
@@ -25,11 +26,11 @@
 
         <!-- منطقة عرض الرسائل -->
         <div class="chat-messages" id="chat-messages">
-            <!-- الرسالة الترحيبية -->
-            <div class="message system-message">
+            <!-- ✨ تم تحديث الرسالة الترحيبية هنا ✨ -->
+            <div id="welcome-message" class="message system-message">
                 <div class="message-avatar"><i class="fas fa-robot"></i></div>
                 <div class="message-content">
-                    <p>مرحباً بك! أنا <strong>Qaes Ai</strong>، مساعدك الذكي. اطرح سؤالاً، أو الصق نصاً طويلاً لتلخيصه.</p>
+                    <p>أهلاً بك، أنا <strong>Qaes Ai</strong>، نموذج ذكاء صناعي من تطوير <strong>قيس طلال غالب الجازي</strong>. كيف يمكنني مساعدتك اليوم؟</p>
                 </div>
             </div>
         </div>
@@ -47,7 +48,6 @@
             <button id="send-btn" aria-label="إرسال"><i class="fas fa-paper-plane"></i></button>
         </div>
     </div>
-
     <!-- ربط ملف الجافا سكريبت -->
     <script src="chat_script.js"></script>
 </body>
